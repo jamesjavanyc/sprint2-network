@@ -3,10 +3,11 @@ import java.util.Map;
 
 public class MessageWorker implements Runnable{
     private final int workerId;
-    private final MessageBuffer messageBuffer;
+    private final MessageBuffer sourceMessageBuffer;
+
     public MessageWorker(int id, MessageBuffer messageBuffer) {
         this.workerId = id;
-        this.messageBuffer = messageBuffer;
+        this.sourceMessageBuffer = messageBuffer;
     }
 
     private String resolveRequestMessage(String message){
@@ -21,7 +22,7 @@ public class MessageWorker implements Runnable{
     @Override
     public void run() {
         while(true){
-            Map.Entry<String, String> messageEntry = this.messageBuffer.getRequestMessage();
+            Map.Entry<String, String> messageEntry = this.sourceMessageBuffer.getRequestMessage();
             if(messageEntry != null){
                 String response = resolveRequestMessage(messageEntry.getValue());
                 try {
