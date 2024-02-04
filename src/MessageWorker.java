@@ -9,7 +9,7 @@ public class MessageWorker implements Runnable{
         this.messageBuffer = messageBuffer;
     }
 
-    public String resolveRequestMessage(String message){
+    private String resolveRequestMessage(String message){
         try {
             Thread.sleep(1000);
             return "Worker " + this.workerId + " received your message:" + message;

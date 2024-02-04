@@ -41,6 +41,7 @@ public class Server {
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         out.println(response);
         socket.close();
+        System.out.println("Response message to " + socket.getInetAddress() + ":" + response);
     }
 
     public MessageBuffer getMessageBuffer(){
