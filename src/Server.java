@@ -43,8 +43,4 @@ public class Server {
         socket.close();
         System.out.println("Response message to " + socket.getInetAddress() + ":" + response);
     }
-
-    public MessageBuffer getMessageBuffer(){
-        return messageBuffer;
-    }
 }
