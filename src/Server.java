@@ -18,7 +18,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             new Thread(new MessageWorker(1, messageBuffer)).start();
             new Thread(new MessageWorker(2, messageBuffer)).start();
-            System.out.println(String.format("Server start success on port :", PORT));
+            System.out.println("Server start success on port :" + PORT);
             while (true){
                 Socket clientSocket = serverSocket.accept();
 
