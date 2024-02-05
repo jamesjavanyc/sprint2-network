@@ -16,6 +16,8 @@ public class Server {
     public static void main(String[] args) throws IOException {
         new Thread(new MessageWorker(1, messageBuffer)).start();
         new Thread(new MessageWorker(2, messageBuffer)).start();
+        new Thread(new MessageWorker(3, messageBuffer)).start();
+        new Thread(new MessageWorker(4, messageBuffer)).start();
 
         requestHolder = new ServerPortListener(PORT);
         Thread serverThread = new Thread(requestHolder);
